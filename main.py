@@ -31,7 +31,7 @@ authorize_url = discord.get_authorize_url(
 @app.get('/me')
 def me(token: str = Cookie(None)):
     session = discord.get_session(token)
-    return session.get('users/@me')
+    return session.get('users/@me').json()
 
 
 @app.get('/login')
