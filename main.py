@@ -40,7 +40,7 @@ def login():
 
 
 @app.get('/discord')
-def discord_callback(response: Response, code: str):
+async def discord_callback(response: Response, code: str):
     response.set_cookie(
         key='token',
         value=discord.get_access_token(
@@ -52,7 +52,7 @@ def discord_callback(response: Response, code: str):
             decoder=json.loads
         )
     )
-    return RedirectResponse('/me')
+    return 'Signed in!'
 
 
 if __name__ == '__main__':
