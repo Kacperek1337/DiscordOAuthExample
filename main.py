@@ -34,7 +34,7 @@ async def me(token: str = Cookie(None)):
     return session.get('users/@me').json()
 
 
-@app.get('/login')
+@app.get('/login', status_code=301)
 async def login():
     return RedirectResponse(authorize_url)
 
